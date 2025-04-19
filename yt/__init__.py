@@ -1,3 +1,6 @@
+import yt_dlp
+import webvtt
+
 def download_channel(channel):
     channel_url = 'https://www.youtube.com/@' + channel +'/videos'
     
