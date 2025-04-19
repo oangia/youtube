@@ -28,3 +28,21 @@ def download_audio(id):
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download(["https://www.youtube.com/watch?v=" + id])
+
+def download_transcript(id):
+    url = 'https://www.youtube.com/watch?v=' + id
+
+    # Set up yt_dlp options
+    ydl_opts = {
+        'skip_download': True,
+        'writesubtitles': True,
+        'writeautomaticsub': True,
+        'subtitleslangs': ['en'],
+        'subtitlesformat': 'vtt',
+        'outtmpl': '%(id)s.%(ext)s',
+        'quiet': True,
+    }
+    
+    # Download subtitles
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(url, download=True)
