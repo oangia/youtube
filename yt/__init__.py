@@ -39,7 +39,7 @@ def download_transcript(id):
         'writeautomaticsub': True,
         'subtitleslangs': ['en'],
         'subtitlesformat': 'vtt',
-        'outtmpl': '%(id)s.%(ext)s',
+        'outtmpl': 'transcript.%(ext)s',
         'quiet': True,
     }
     
