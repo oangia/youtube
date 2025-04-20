@@ -35,9 +35,9 @@ def download_transcript(id):
     # Set up yt_dlp options
     ydl_opts = {
         'skip_download': True,
-        'writesubtitles': True,
-        'writeautomaticsub': True,
-        'subtitleslangs': ['en'],
+        'writesubtitles': True,         # download manual subtitles if available
+        'writeautomaticsub': True,      # fallback to auto subtitles if manual not available
+        'subtitleslangs': ['en'],       # target English only
         'subtitlesformat': 'vtt',
         'outtmpl': 'transcript.%(ext)s',
         'quiet': True,
