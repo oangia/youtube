@@ -53,7 +53,7 @@ def download_transcript(id):
 def vtt_to_text(filepath):
     transcript = []
     for caption in webvtt.read(filepath):
-        transcript.append(caption.text)
+        transcript.append(caption.text.replace("\n", " "))
     new_trans = [transcript[0]]
     for i in range(1, len(transcript)):
         if transcript[i] != new_trans[-1]:
