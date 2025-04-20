@@ -1,5 +1,6 @@
 import yt_dlp
 import webvtt
+import os
 
 def download_channel(channel):
     channel_url = 'https://www.youtube.com/@' + channel +'/videos'
@@ -50,11 +51,8 @@ def download_transcript(id):
     return vtt_to_text("transcript.en.vtt")
 
 def vtt_to_text(filepath):
-    text = []
-    with open(filepath, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("WEBVTT") or "-->" in line or line.isdigit():
-                continue
-            text.append(line)
-    return "\r\n".join(text)
+    transcript = []
+    for caption in webvtt.read(filepath):
+        transcript.append(caption.text)
+    full_text = '\n'.join(transcript)
+    return full_text
