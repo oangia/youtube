@@ -55,7 +55,7 @@ def vtt_to_text(filepath):
     for caption in webvtt.read(filepath):
         transcript.append(caption.text)
 
-    for i in range(len(transcript)) - 1:
+    for i in range(len(transcript) - 1):
         if transcript[i + 1] == transcript[i]:
             del transcript[i + 1]
     return '\n'.join(transcript)
