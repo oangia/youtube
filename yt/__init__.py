@@ -57,4 +57,4 @@ def vtt_to_text(filepath):
             if not line or line.startswith("WEBVTT") or "-->" in line or line.isdigit():
                 continue
             text.append(line)
-    return "\n".join(text)
+    return "\r\n".join(text)
