@@ -56,6 +56,6 @@ def vtt_to_text(filepath):
         transcript.append(caption.text)
     new_trans = [transcript[0]]
     for i in range(1, len(transcript)):
-        if transcript[i] != transcript[i - 1]:
+        if transcript[i] != new_trans[-1]:
             new_trans.append(transcript[i])
     return '\n'.join(new_trans)
